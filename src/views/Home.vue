@@ -46,28 +46,33 @@
       <p class="title">NEWS</p>
       <p class="translation">ニュース</p>
       <div class="lists">
-        <div class="news-list" @click="show = !show">
+        <div
+          class="news-list"
+          v-for="list in lists"
+          :key="list"
+          @mouseover="hoverThumbnail = thumbnail ,escapeThumbnail = '' "
+          @mouseout="hoverThumbnail = '' , escapeThumbnail = thumbnail"
+        >
           <div class="image">
-            <transition name="box">
-              <div class="target" v-if="show">
-                <img
-                  src="../../src/assets/images/target.png"
-                  alt="icon"
-                  class="icon"
-                />
-              </div>
-            </transition>
+            <div
+              :key="thumbnail"
+              :class="{
+                  target: hoverThumbnail === thumbnail,
+                  escape: escapeThumbnail === thumbnail
+                  }"
+            >
+              <img src="../../src/assets/images/target.png" alt="icon" class="icon" />
+            </div>
+
             <img
-              src="../../src/assets/images/news1.png"
+              v-for="thumbnail in list.thumbnails"
+              :key="thumbnail"
+              :src="thumbnail"
               alt="thumbnail"
               class="thumbnail"
             />
           </div>
-          <img
-            src="../../src/assets/images/info.png"
-            alt="genre"
-            class="genre"
-          />
+          <img src="../../src/assets/images/info.png" alt="genre" class="genre" />
           <p class="title">【重要なお知らせ】2020年開催公演についてのご案内</p>
           <p class="time">2020.06.30[Tue]</p>
         </div>
@@ -78,11 +83,23 @@
 <script>
 export default {
   components: {},
-  data: function() {
+  data: function () {
     return {
       hoverMain: "",
-      show: false,
+      hoverThumbnail: "",
+      escapeThumbnail: "",
+      lists: [
+        { thumbnails: [require("@/assets/images/news1.png")] },
+        { thumbnails: [require("@/assets/images/news2.png")] },
+        { thumbnails: [require("@/assets/images/news3.png")] },
+        { thumbnails: [require("@/assets/images/news4.png")] },
+        { thumbnails: [require("@/assets/images/news5.png")] },
+        { thumbnails: [require("@/assets/images/news6.png")] },
+        { thumbnails: [require("@/assets/images/news6.png")] },
+        { thumbnails: [require("@/assets/images/news6.png")] },
+      ],
     };
   },
 };
 </script>
+

@@ -48,4 +48,6 @@
 
 .news-container > .lists {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
