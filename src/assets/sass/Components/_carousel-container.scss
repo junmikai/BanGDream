@@ -1,0 +1,28 @@
+.VueCarousel {
+  background-image: url("../images/carouselback.png");
+  border-radius: 0 0 50% 50%;
+  height: 300px;
+}
+.VueCarousel-wrapper {
+  width: 75%;
+  margin: 50px auto 0px;
+}
+.VueCarousel-slide {
+  display: flex;
+  justify-content: center;
+}
+
+.VueCarousel-slide img {
+  width: 45%;
+  margin: 0px 10px;
+}
+
+// .VueCarousel-dot {
+//   background-image: url("../images/star.png") !important;
+//   background-color: none !important;
+//   background-size: 200% !important;
+// }
+
+// .VueCarousel-dot--active {
+//   background-color: none !important;
+// }
