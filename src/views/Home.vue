@@ -50,15 +50,15 @@
           class="news-list"
           v-for="list in lists"
           :key="list"
-          @mouseover="hoverThumbnail = thumbnail ,escapeThumbnail = '' "
-          @mouseout="hoverThumbnail = '' , escapeThumbnail = thumbnail"
+          @mouseover="hoverThumbnail = list ,escapeThumbnail = '' "
+          @mouseout="hoverThumbnail = '' , escapeThumbnail = list"
         >
           <div class="image">
             <div
               :key="thumbnail"
               :class="{
-                  target: hoverThumbnail === thumbnail,
-                  escape: escapeThumbnail === thumbnail
+                  target: hoverThumbnail === list,
+                  escape: escapeThumbnail === list
                   }"
             >
               <img src="../../src/assets/images/target.png" alt="icon" class="icon" />
