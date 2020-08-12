@@ -50,8 +50,8 @@
           class="news-list"
           v-for="list in lists"
           :key="list"
-          @mouseover="hoverThumbnail = list ,escapeThumbnail = '' "
-          @mouseout="hoverThumbnail = '' , escapeThumbnail = list"
+          @mouseover="hoverThumbnail = list ,escapeThumbnail = '', hoverTitle  = list "
+          @mouseout="hoverThumbnail = '' , escapeThumbnail = list, hoverTitle  = '' "
         >
           <div class="image">
             <div
@@ -73,7 +73,12 @@
             />
           </div>
           <img v-for="genre in list.genres" :key="genre" :src="genre" alt="genre" class="genre" />
-          <p class="title" v-for="title in list.titles" :key="title">{{title}}</p>
+          <p
+            class="title"
+            v-for="title in list.titles"
+            :key="title"
+            :class="{ hover: hoverTitle === list }"
+          >{{title}}</p>
           <p class="time" v-for="time in list.times" :key="time">{{time}}</p>
         </div>
       </div>
@@ -88,6 +93,7 @@ export default {
       hoverMain: "",
       hoverThumbnail: "",
       escapeThumbnail: "",
+      hoverTitle: "",
       lists: [
         {
           thumbnails: [require("@/assets/images/news1.png")],
