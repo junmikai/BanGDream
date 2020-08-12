@@ -82,6 +82,8 @@
           <p class="time" v-for="time in list.times" :key="time">{{time}}</p>
         </div>
       </div>
+
+      <div class="btn">VIEW MORE</div>
     </div>
   </div>
 </template>
