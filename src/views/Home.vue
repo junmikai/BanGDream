@@ -50,18 +50,26 @@
           class="news-list"
           v-for="list in lists"
           :key="list"
-          @mouseover="hoverThumbnail = list ,escapeThumbnail = '', hoverTitle  = list "
-          @mouseout="hoverThumbnail = '' , escapeThumbnail = list, hoverTitle  = '' "
+          @mouseover="
+            (hoverThumbnail = list), (escapeThumbnail = ''), (hoverTitle = list)
+          "
+          @mouseout="
+            (hoverThumbnail = ''), (escapeThumbnail = list), (hoverTitle = '')
+          "
         >
           <div class="image">
             <div
               :key="thumbnail"
               :class="{
-                  target: hoverThumbnail === list,
-                  escape: escapeThumbnail === list
-                  }"
+                target: hoverThumbnail === list,
+                escape: escapeThumbnail === list,
+              }"
             >
-              <img src="../../src/assets/images/target.png" alt="icon" class="icon" />
+              <img
+                src="../../src/assets/images/target.png"
+                alt="icon"
+                class="icon"
+              />
             </div>
 
             <img
@@ -72,25 +80,34 @@
               class="thumbnail"
             />
           </div>
-          <img v-for="genre in list.genres" :key="genre" :src="genre" alt="genre" class="genre" />
+          <img
+            v-for="genre in list.genres"
+            :key="genre"
+            :src="genre"
+            alt="genre"
+            class="genre"
+          />
           <p
             class="title"
             v-for="title in list.titles"
             :key="title"
             :class="{ hover: hoverTitle === list }"
-          >{{title}}</p>
-          <p class="time" v-for="time in list.times" :key="time">{{time}}</p>
+          >
+            {{ title }}
+          </p>
+          <p class="time" v-for="time in list.times" :key="time">{{ time }}</p>
         </div>
       </div>
 
       <div class="btn">VIEW MORE</div>
     </div>
+    <v-calendar :attributes="attrs"></v-calendar>
   </div>
 </template>
 <script>
 export default {
   components: {},
-  data: function () {
+  data: function() {
     return {
       hoverMain: "",
       hoverThumbnail: "",
@@ -154,8 +171,16 @@ export default {
           times: ["2020.07.30[Thu]"],
         },
       ],
+      attrs: [
+        {
+          key: "today",
+          dates: new Date(),
+          popover: {
+            label: "メッセージを表示できます",
+          },
+        },
+      ],
     };
   },
 };
 </script>
-

@@ -41,7 +41,6 @@ export default {
         "DISCOGRAPHY",
         "GOODS",
         "ABOUT",
-        2222,
       ],
       icons: [
         require("@/assets/images/twitter.png"),
