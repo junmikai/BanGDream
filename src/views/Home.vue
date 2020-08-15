@@ -100,19 +100,50 @@
       </div>
       <div class="btn">VIEW MORE</div>
     </div>
-    <v-calendar>
+
+    <v-calendar type="week">
       <template slot="day-content" slot-scope="props">
-        <div class="vc-day-content">
-          <div>
-            {{ props.day.day }}
-          </div>
+        <div class="cell-header">
+          {{ props.day.day }}
         </div>
-        <div v-if="props.day.day % 2 == 0">
-          <img src="../../src/assets/images/guitar.png" alt="guitar" />
-          aa
+        <div class="cell-content">
+          <template
+            v-if="
+              dateList.some(
+                (date) => date.ymd === dateToYYYYMMDD(props.day.date)
+              )
+            "
+          >
+            <div
+              class="cell-content-line"
+              v-for="content in getContentFromKey(
+                dateToYYYYMMDD(props.day.date)
+              )"
+              v-bind:key="content"
+            >
+              ・{{ content }}
+            </div>
+          </template>
         </div>
-        <div v-else style="text-align:center">
-          <img src="../../src/assets/images/guitar.png" alt="guitar" />
+
+        <div class="cell-content2">
+          <template
+            v-if="
+              dateList2.some(
+                (date) => date.ymd === dateToYYYYMMDD2(props.day.date)
+              )
+            "
+          >
+            <div
+              class="cell-content-line2"
+              v-for="content2 in getContentFromKey2(
+                dateToYYYYMMDD2(props.day.date)
+              )"
+              v-bind:key="content2"
+            >
+              ・{{ content2 }}
+            </div>
+          </template>
         </div>
       </template>
     </v-calendar>
@@ -120,6 +151,7 @@
 </template>
 <script>
 export default {
+  name: "calendar",
   data: function() {
     return {
       hoverMain: "",
@@ -128,6 +160,74 @@ export default {
       hoverTitle: "",
       main: false,
       thumbnail: false,
+      dateList: [
+        {
+          ymd: "20200809",
+          contents: [
+            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+          ],
+        },
+        {
+          ymd: "20200810",
+          contents: [
+            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+          ],
+        },
+        {
+          ymd: "20200811",
+          contents: [
+            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+          ],
+        },
+        {
+          ymd: "20200812",
+          contents: [
+            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+          ],
+        },
+        {
+          ymd: "20200813",
+          contents: [
+            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+          ],
+        },
+        {
+          ymd: "20200814",
+          contents: [
+            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+          ],
+        },
+        {
+          ymd: "20200815",
+          contents: [
+            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+          ],
+        },
+      ],
+      dateList2: [
+        {
+          ymd: "20200801",
+          contents: [
+            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+          ],
+        },
+      ],
       lists: [
         {
           thumbnails: [require("@/assets/images/news1.png")],
@@ -188,6 +288,33 @@ export default {
       ],
     };
   },
-  methods: {},
+  methods: {
+    dateToYYYYMMDD: function(date) {
+      let y = date.getFullYear();
+      let m = ("00" + (date.getMonth() + 1)).slice(-2);
+      let d = ("00" + date.getDate()).slice(-2);
+      let result = y + "" + m + "" + d;
+      return result;
+    },
+    getContentFromKey: function(key) {
+      const target = this.dateList.find((date) => {
+        return date.ymd === key;
+      });
+      return target.contents;
+    },
+    dateToYYYYMMDD2: function(date) {
+      let y = date.getFullYear();
+      let m = ("00" + (date.getMonth() + 1)).slice(-2);
+      let d = ("00" + date.getDate()).slice(-2);
+      let result = y + "" + m + "" + d;
+      return result;
+    },
+    getContentFromKey2: function(key) {
+      const target = this.dateList2.find((date) => {
+        return date.ymd === key;
+      });
+      return target.contents;
+    },
+  },
 };
 </script>
