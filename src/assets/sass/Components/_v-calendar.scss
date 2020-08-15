@@ -21,10 +21,17 @@
 }
 // イベントcss
 .cell-content-line {
-  background: #ff774e;
   color: white;
   display: block;
   border-radius: 5px;
   transition: opacity 300ms ease;
   margin: 5px 5px;
+  font-size: 13px;
+  font-weight: bold;
+  &.-live {
+    background: #ff774e;
+  }
+  &.-ticket {
+    background-color: #4292e4;
+  }
 }
