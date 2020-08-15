@@ -113,6 +113,8 @@ export default {
       hoverThumbnail: "",
       escapeThumbnail: "",
       hoverTitle: "",
+      main: false,
+      thumbnail: false,
       lists: [
         {
           thumbnails: [require("@/assets/images/news1.png")],

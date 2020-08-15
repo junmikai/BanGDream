@@ -10,7 +10,9 @@
           :class="{ select: hoverLink === list }"
           @mouseover="hoverLink = list"
           @mouseout="hoverLink = ''"
-        >{{ list }}</div>
+        >
+          {{ list }}
+        </div>
 
         <img
           v-for="icon in icons"
@@ -30,8 +32,7 @@
 
 <script>
 export default {
-  el: "#app",
-  data: function () {
+  data: function() {
     return {
       englishs: [
         "NEWS",
