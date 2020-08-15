@@ -9,8 +9,8 @@
       @mouseout="hoverMain = ''"
     />
     <carousel
-      autoplay="true"
-      loop="true"
+      autoplay
+      loop
       :per-page="1"
       navigation-prev-label="〈"
       navigation-next-label="〉"
@@ -48,8 +48,8 @@
       <div class="lists">
         <div
           class="news-list"
-          v-for="list in lists"
-          :key="list"
+          v-for="(list, index) in lists"
+          :key="`list-${index}`"
           @mouseover="
             (hoverThumbnail = list), (escapeThumbnail = ''), (hoverTitle = list)
           "
