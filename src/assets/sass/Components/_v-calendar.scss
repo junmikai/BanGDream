@@ -3,14 +3,19 @@
   margin: 0 auto;
   width: 1200px;
 }
-// 曜日のデザイン
+// 曜日の背景
 .vc-grid-cell-row--7 {
   height: 40px;
   background-color: #e9e9e9;
-  font-size: 17px;
+}
+// 曜日の文字色
+.vc-text-gray-500 {
   color: black;
+  font-size: 17px;
 }
 
-.vc-text-gray-500 {
-  color: none !important;
+.vc-text-sm {
+  color: black;
+  font-size: 18px;
+  padding: 5px 8px;
 }
