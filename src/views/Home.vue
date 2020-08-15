@@ -98,15 +98,28 @@
           <p class="time" v-for="time in list.times" :key="time">{{ time }}</p>
         </div>
       </div>
-
       <div class="btn">VIEW MORE</div>
     </div>
-    <v-calendar :attributes="attrs"></v-calendar>
+    <v-calendar>
+      <template slot="day-content" slot-scope="props">
+        <div class="vc-day-content">
+          <div>
+            {{ props.day.day }}
+          </div>
+        </div>
+        <div v-if="props.day.day % 2 == 0">
+          <img src="../../src/assets/images/guitar.png" alt="guitar" />
+          aa
+        </div>
+        <div v-else style="text-align:center">
+          <img src="../../src/assets/images/guitar.png" alt="guitar" />
+        </div>
+      </template>
+    </v-calendar>
   </div>
 </template>
 <script>
 export default {
-  components: {},
   data: function() {
     return {
       hoverMain: "",
@@ -173,16 +186,8 @@ export default {
           times: ["2020.07.30[Thu]"],
         },
       ],
-      attrs: [
-        {
-          key: "today",
-          dates: new Date(),
-          popover: {
-            label: "メッセージを表示できます",
-          },
-        },
-      ],
     };
   },
+  methods: {},
 };
 </script>
