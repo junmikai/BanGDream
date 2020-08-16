@@ -4,6 +4,7 @@
   background-image: url("../images/roselia.png");
   background-size: contain;
   background-repeat: no-repeat;
+  color: $white;
 }
 
 .footer-container > .black {
@@ -25,4 +26,22 @@
 .footer-container > .black > .title > .icon {
   height: 22px;
   margin: 0 15px;
+}
+
+.footer-container > .black > .share {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  align-items: center;
+}
+.footer-container > .black > .share > .title {
+  font-size: 18px;
+  line-height: 30px;
+  margin-right: 15px;
+}
+.footer-container > .black > .share > .circle {
+  height: 34px;
+  margin: 0 15px;
+  letter-spacing: 0.2em;
+  cursor: pointer;
 }

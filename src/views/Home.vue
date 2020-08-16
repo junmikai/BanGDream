@@ -241,6 +241,20 @@
             </div>
           </div>
         </div>
+
+        <div class="share">
+          <p class="title">SHARE</p>
+          <img
+            v-for="(circle, index) in circles"
+            :key="`circle-${index}`"
+            :src="circle"
+            alt="circle"
+            class="circle"
+            @mouseover="hoverCircle = circle"
+            @mouseout="hoverCircle = ''"
+            :class="{ hoverOpacity: hoverCircle === circle }"
+          />
+        </div>
       </div>
     </div>
   </div>
@@ -257,12 +271,14 @@ export default {
       hoverTitle: "",
       hoverBox: "",
       hoverTwitter: "",
+      hoverCircle: "",
       main: false,
       thumbnail: false,
       btn: false,
       box: false,
       red: false,
       twitter: false,
+      circle: false,
       liveList: [
         {
           ymd: "20200803",
@@ -415,6 +431,11 @@ export default {
           titles: ["バンドリ！ ガールズバンドパーティ！"],
           links: ["@bang_dream_gbp"],
         },
+      ],
+      circles: [
+        require("@/assets/images/twitter-circle.png"),
+        require("@/assets/images/facebook-circle.png"),
+        require("@/assets/images/line-circle.png"),
       ],
     };
   },
