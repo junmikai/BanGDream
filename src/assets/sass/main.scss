@@ -7,6 +7,6 @@
 
 @import "./Components/header/header-container";
 @import "./Components/header/header-nav";
-
-@import "./Components/home/_news-container";
-@import "./Components/home/_news-list";
+@import "./Components/home/main-container.scss";
+@import "./Components/home/contents-container";
+@import "./Components/home/news-list";

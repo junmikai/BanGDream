@@ -1,5 +1,6 @@
 <template>
   <div class="main-container">
+    <!-- トップ画像 -->
     <img
       alt="main"
       :key="main"
@@ -8,6 +9,7 @@
       @mouseover="hoverMain = main"
       @mouseout="hoverMain = ''"
     />
+    <!-- カルーセル-->
     <carousel
       autoplay
       loop
@@ -42,7 +44,8 @@
         <img src="../../src/assets/images/banner1.png" alt="スライド1" />
       </slide>
     </carousel>
-    <div class="news-container">
+    <!-- ニュース-->
+    <div class="contents-container">
       <p class="title">NEWS</p>
       <p class="translation">ニュース</p>
       <div class="lists">
@@ -95,50 +98,61 @@
           >
             {{ title }}
           </p>
-          <p class="time" v-for="time in list.times" :key="time">{{ time }}</p>
+          <p class="time" v-for="time in list.times" :key="time">
+            {{ time }}
+          </p>
         </div>
       </div>
       <div class="btn">VIEW MORE</div>
     </div>
 
-    <v-calendar type="week">
-      <template slot="day-content" slot-scope="props">
-        <div class="cell-header">
-          {{ props.day.day }}
-        </div>
-        <div class="cell-content">
-          <template
-            v-if="
-              liveList.some((date) => date.ymd === liveDate(props.day.date))
-            "
-          >
-            <div
-              class="cell-content-line -live"
-              v-for="content in getLiveFromKey(liveDate(props.day.date))"
-              v-bind:key="content"
+    <div class="contents-container -pa1_5 -back">
+      <p class="title">SCHEDULE</p>
+      <p class="translation">スケジュール</p>
+      <p class="month">2020年8月</p>
+      <!-- カレンダー-->
+      <v-calendar>
+        <template slot="day-content" slot-scope="props">
+          <div class="cell-header">
+            {{ props.day.day }}
+          </div>
+          <div class="cell-content">
+            <template
+              v-if="
+                liveList.some((date) => date.ymd === liveDate(props.day.date))
+              "
             >
-              ・{{ content }}
-            </div>
-          </template>
-        </div>
+              <div
+                class="cell-content-line -live"
+                v-for="content in getLiveFromKey(liveDate(props.day.date))"
+                v-bind:key="content"
+              >
+                {{ content }}
+              </div>
+            </template>
+          </div>
 
-        <div class="cell-content">
-          <template
-            v-if="
-              ticketList.some((date) => date.ymd === ticketDate(props.day.date))
-            "
-          >
-            <div
-              class="cell-content-line -ticket"
-              v-for="content in getTicketFromKey(ticketDate(props.day.date))"
-              v-bind:key="content"
+          <div class="cell-content">
+            <template
+              v-if="
+                ticketList.some(
+                  (date) => date.ymd === ticketDate(props.day.date)
+                )
+              "
             >
-              ・{{ content }}
-            </div>
-          </template>
-        </div>
-      </template>
-    </v-calendar>
+              <div
+                class="cell-content-line -ticket"
+                v-for="content in getTicketFromKey(ticketDate(props.day.date))"
+                v-bind:key="content"
+              >
+                {{ content }}
+              </div>
+            </template>
+          </div>
+        </template>
+      </v-calendar>
+      <div class="btn">VIEW MORE</div>
+    </div>
   </div>
 </template>
 <script>
@@ -153,6 +167,10 @@ export default {
       main: false,
       thumbnail: false,
       liveList: [
+        {
+          ymd: "20200803",
+          contents: ["📻《21:00》【第46回】Afterglowの夕焼けSTUDIO"],
+        },
         {
           ymd: "20200809",
           contents: [
@@ -190,6 +208,10 @@ export default {
           ymd: "20200815",
           contents: ["📺《21:00》Pastel＊PalettesのしゅわりんTV #10"],
         },
+        {
+          ymd: "20200830",
+          contents: ["📺《21:00》Pastel＊PalettesのしゅわりんTV #10"],
+        },
       ],
       ticketList: [
         {
@@ -212,6 +234,14 @@ export default {
         },
         {
           ymd: "20200815",
+          contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
+        },
+        {
+          ymd: "20200820",
+          contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
+        },
+        {
+          ymd: "20200826",
           contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
         },
       ],

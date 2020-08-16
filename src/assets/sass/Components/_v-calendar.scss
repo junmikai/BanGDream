@@ -3,6 +3,22 @@
   margin: 0 auto;
   width: 1200px;
 }
+.vc-container {
+  --header-padding: none;
+  --weeks-padding: none;
+}
+//月表示をなくす
+.vc-arrows-container {
+  display: none;
+}
+.vc-title-layout {
+  display: none !important;
+}
+
+// カレンダーの枠線
+.vc-day {
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
 // 曜日の背景
 .vc-grid-cell-row--7 {
   height: 40px;
@@ -12,6 +28,7 @@
 .vc-text-gray-500 {
   color: black;
   font-size: 17px;
+  font-weight: normal;
 }
 // 日付の色
 .vc-text-sm {
@@ -28,7 +45,6 @@
   margin: 5px 5px;
   font-size: 13px;
   font-weight: bold;
-
   &.-live {
     background: #ff774e;
   }

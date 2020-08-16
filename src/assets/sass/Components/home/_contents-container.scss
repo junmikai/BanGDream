@@ -1,8 +1,17 @@
-.news-container {
+.contents-container {
   padding: 5%;
+  &.-pa1_5 {
+    padding: 1% 10%;
+  }
+  &.-back {
+    background-image: url("../images/main-back.png");
+    background-size: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+  }
 }
 
-.news-container > .title {
+.contents-container > .title {
   font-size: 19px;
   font-weight: bold;
   display: flex;
@@ -22,7 +31,7 @@
   }
 }
 
-.news-container > .translation {
+.contents-container > .translation {
   text-align: center;
   font-size: 10px;
   color: $wild-dove;
@@ -46,13 +55,13 @@
   }
 }
 
-.news-container > .lists {
+.contents-container > .lists {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.news-container > .btn {
+.contents-container > .btn {
   height: 50px;
   width: 250px;
   background-color: $framboise;
@@ -60,4 +69,10 @@
   text-align: center;
   line-height: 50px;
   color: $white;
+}
+
+.contents-container > .month {
+  font-size: 26px;
+  color: #7b7b7b;
+  margin-top: 50px;
 }
