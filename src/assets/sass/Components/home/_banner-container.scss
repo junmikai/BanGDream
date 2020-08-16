@@ -1,0 +1,22 @@
+.banner-container {
+  background-image: url("../images/banner.png");
+  background-size: contain;
+  height: 350px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.banner-container > .box {
+  position: relative;
+  margin: 0 1%;
+}
+
+.banner-container > .box > .image {
+  width: 560px;
+  height: 220px;
+  position: relative;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  cursor: pointer;
+}

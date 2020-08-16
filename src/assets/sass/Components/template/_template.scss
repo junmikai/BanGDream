@@ -7,3 +7,11 @@
 .hoverLine {
   text-decoration: underline;
 }
+.hoverRed {
+  height: 100%;
+  width: 100%;
+  background-color: $pico-8-pink;
+  opacity: 0.5;
+  position: absolute;
+  top: 0;
+}

@@ -169,6 +169,25 @@
         VIEW MORE
       </div>
     </div>
+
+    <div class="banner-container">
+      <div
+        class="box"
+        v-for="(box, index) in boxs"
+        :key="`box-${index}`"
+        @mouseover="hoverBox = box"
+        @mouseout="hoverBox = ''"
+      >
+        <img
+          class="image"
+          v-for="(banner, index) in box.banners"
+          :key="`banner-${index}`"
+          :src="banner"
+          alt="banner"
+        />
+        <div :class="{ hoverRed: hoverBox === box }"></div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -181,9 +200,12 @@ export default {
       escapeThumbnail: "",
       hoverBtn: "",
       hoverTitle: "",
+      hoverBox: "",
       main: false,
       thumbnail: false,
       btn: false,
+      box: false,
+      red: false,
       liveList: [
         {
           ymd: "20200803",
@@ -320,6 +342,10 @@ export default {
           titles: ["ガルパと赤い羽根共同募金のコラボレーション第3弾が決定！"],
           times: ["2020.07.30[Thu]"],
         },
+      ],
+      boxs: [
+        { banners: [require("@/assets/images/link1.png")] },
+        { banners: [require("@/assets/images/link2.png")] },
       ],
     };
   },
