@@ -188,6 +188,25 @@
         <div :class="{ hoverRed: hoverBox === box }"></div>
       </div>
     </div>
+
+    <div class="footer-container">
+      <div class="black">
+        <div class="title">
+          <img
+            src="../../src/assets/images/star-white.png"
+            alt="icon"
+            class="icon"
+          />
+          <p>Official Twitter</p>
+          <img
+            src="../../src/assets/images/star-white.png"
+            alt="icon"
+            class="icon"
+          />
+        </div>
+        <div class="footer-sns"></div>
+      </div>
+    </div>
   </div>
 </template>
 <script>
