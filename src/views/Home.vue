@@ -103,7 +103,15 @@
           </p>
         </div>
       </div>
-      <div class="btn">VIEW MORE</div>
+      <div
+        class="btn"
+        :key="btn"
+        :class="{ hoverLine: hoverBtn === btn }"
+        @mouseover="hoverBtn = btn"
+        @mouseout="hoverBtn = ''"
+      >
+        VIEW MORE
+      </div>
     </div>
 
     <div class="contents-container -pa1_5 -back">
@@ -151,7 +159,15 @@
           </div>
         </template>
       </v-calendar>
-      <div class="btn">VIEW MORE</div>
+      <div
+        class="btn"
+        :key="btn"
+        :class="{ hoverLine: hoverBtn === btn }"
+        @mouseover="hoverBtn = btn"
+        @mouseout="hoverBtn = ''"
+      >
+        VIEW MORE
+      </div>
     </div>
   </div>
 </template>
@@ -163,9 +179,11 @@ export default {
       hoverMain: "",
       hoverThumbnail: "",
       escapeThumbnail: "",
+      hoverBtn: "",
       hoverTitle: "",
       main: false,
       thumbnail: false,
+      btn: false,
       liveList: [
         {
           ymd: "20200803",
