@@ -255,6 +255,14 @@
             :class="{ hoverOpacity: hoverCircle === circle }"
           />
         </div>
+
+        <img
+          :src="logo"
+          alt="logo"
+          class="logo"
+          @mouseover="logo = hoverLogo"
+          @mouseout="logo = hoverLogoOut"
+        />
       </div>
     </div>
   </div>
@@ -279,6 +287,9 @@ export default {
       red: false,
       twitter: false,
       circle: false,
+      logo: require("@/assets/images/footer-logo-white.png"),
+      hoverLogo: require("@/assets/images/footer-logo.png"),
+      hoverLogoOut: require("@/assets/images/footer-logo-white.png"),
       liveList: [
         {
           ymd: "20200803",
