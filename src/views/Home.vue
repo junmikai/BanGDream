@@ -212,6 +212,7 @@
             :key="`twitter-${index}`"
             @mouseover="hoverTwitter = twitter"
             @mouseout="hoverTwitter = ''"
+            :class="{ hoverWhite: hoverTwitter === twitter }"
           >
             <div class="area -w120">
               <img
@@ -220,11 +221,23 @@
                 :src="icon"
                 alt="icon"
                 class="icon"
+                :class="{ hoverOpacity: hoverTwitter === twitter }"
               />
             </div>
-            <div class="area">
-              <p class="title">BanG Dream!（バンドリ！）公式</p>
-              <a class="link">@bang_dream_info</a>
+            <div class="area" :class="{ hoverFont: hoverTwitter === twitter }">
+              <p
+                class="title"
+                v-for="(title, index) in twitter.titles"
+                :key="`title-${index}`"
+              >
+                {{ title }}
+              </p>
+              <a
+                class="link"
+                v-for="(link, index) in twitter.links"
+                :key="`link-${index}`"
+                >@bang_dream_info</a
+              >
             </div>
           </div>
         </div>
@@ -392,8 +405,16 @@ export default {
         { banners: [require("@/assets/images/link2.png")] },
       ],
       twitters: [
-        { icons: [require("@/assets/images/app-icon.png")] },
-        { icons: [require("@/assets/images/twitter-icon.png")] },
+        {
+          icons: [require("@/assets/images/twitter-icon.png")],
+          titles: ["BanG Dream!（バンドリ！）公式"],
+          links: ["@bang_dream_info"],
+        },
+        {
+          icons: [require("@/assets/images/app-icon.png")],
+          titles: ["バンドリ！ ガールズバンドパーティ！"],
+          links: ["@bang_dream_gbp"],
+        },
       ],
     };
   },
