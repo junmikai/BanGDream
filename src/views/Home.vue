@@ -204,11 +204,20 @@
             class="icon"
           />
         </div>
+
         <div class="footer-sns">
-          <div class="rectangle">
+          <div
+            class="rectangle"
+            v-for="(twitter, index) in twitters"
+            :key="`twitter-${index}`"
+            @mouseover="hoverTwitter = twitter"
+            @mouseout="hoverTwitter = ''"
+          >
             <div class="area -w120">
               <img
-                src="../../src/assets/images/twitter-icon.png"
+                v-for="(icon, index) in twitter.icons"
+                :key="`icon-${index}`"
+                :src="icon"
                 alt="icon"
                 class="icon"
               />
@@ -216,20 +225,6 @@
             <div class="area">
               <p class="title">BanG Dream!（バンドリ！）公式</p>
               <a class="link">@bang_dream_info</a>
-            </div>
-          </div>
-
-          <div class="rectangle">
-            <div class="area -w120">
-              <img
-                src="../../src/assets/images/app-icon.png"
-                alt="icon"
-                class="icon"
-              />
-            </div>
-            <div class="area">
-              <p class="title">バンドリ！ ガールズバンドパーティ！</p>
-              <a class="link">@bang_dream_gbp</a>
             </div>
           </div>
         </div>
@@ -248,11 +243,13 @@ export default {
       hoverBtn: "",
       hoverTitle: "",
       hoverBox: "",
+      hoverTwitter: "",
       main: false,
       thumbnail: false,
       btn: false,
       box: false,
       red: false,
+      twitter: false,
       liveList: [
         {
           ymd: "20200803",
@@ -393,6 +390,10 @@ export default {
       boxs: [
         { banners: [require("@/assets/images/link1.png")] },
         { banners: [require("@/assets/images/link2.png")] },
+      ],
+      twitters: [
+        { icons: [require("@/assets/images/app-icon.png")] },
+        { icons: [require("@/assets/images/twitter-icon.png")] },
       ],
     };
   },
