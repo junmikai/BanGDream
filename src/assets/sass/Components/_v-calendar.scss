@@ -1,7 +1,7 @@
 // サイズ
 .vc-container {
   margin: 0 auto;
-  width: 1000px;
+  width: 1200px;
 }
 // 曜日の背景
 .vc-grid-cell-row--7 {
@@ -28,6 +28,7 @@
   margin: 5px 5px;
   font-size: 13px;
   font-weight: bold;
+
   &.-live {
     background: #ff774e;
   }
