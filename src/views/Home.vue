@@ -62,6 +62,7 @@
         >
           <div class="image">
             <div
+              class="inner"
               :key="thumbnail"
               :class="{
                 target: hoverThumbnail === list,
