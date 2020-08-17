@@ -191,17 +191,17 @@
 
     <div class="footer-container">
       <div class="black">
-        <div class="title">
+        <div class="flex -title">
           <img
             src="../../src/assets/images/star-white.png"
-            alt="icon"
-            class="icon"
+            alt="star"
+            class="star"
           />
           <p>Official Twitter</p>
           <img
             src="../../src/assets/images/star-white.png"
-            alt="icon"
-            class="icon"
+            alt="star"
+            class="star"
           />
         </div>
 
@@ -242,8 +242,8 @@
           </div>
         </div>
 
-        <div class="share">
-          <p class="title">SHARE</p>
+        <div class="flex -share">
+          <p class="share">SHARE</p>
           <img
             v-for="(circle, index) in circles"
             :key="`circle-${index}`"
@@ -263,6 +263,35 @@
           @mouseover="logo = hoverLogo"
           @mouseout="logo = hoverLogoOut"
         />
+        <div class="flex">
+          <img
+            v-for="(bushiroad, index) in bushiroads"
+            :key="`bushiroad-${index}`"
+            :src="bushiroad"
+            alt="bushiroad"
+            class="bushiroad"
+            @mouseover="hoverBushiroad = bushiroad"
+            @mouseout="hoverBushiroad = ''"
+            :class="{ hoverOpacity: hoverBushiroad === bushiroad }"
+          />
+        </div>
+
+        <div class="flex -share">
+          <p
+            class="lang"
+            v-for="(lang, index) in langs"
+            :key="`lang-${index}`"
+            @mouseover="hoverLang = lang"
+            @mouseout="hoverLang = ''"
+            :class="{ hoverFont: hoverLang === lang }"
+          >
+            {{ lang }}
+          </p>
+        </div>
+        <p class="terms">
+          掲載の記事・写真・イラスト等のすべてのコンテンツの無断複写・転載を禁じます。©BanG
+          Dream! Project ©Craft Egg Inc. ©bushiroad All Rights Reserved.
+        </p>
       </div>
     </div>
   </div>
@@ -280,6 +309,8 @@ export default {
       hoverBox: "",
       hoverTwitter: "",
       hoverCircle: "",
+      hoverBushiroad: "",
+      hoverLang: "",
       main: false,
       thumbnail: false,
       btn: false,
@@ -287,6 +318,8 @@ export default {
       red: false,
       twitter: false,
       circle: false,
+      bushiroad: false,
+      lang: false,
       logo: require("@/assets/images/footer-logo-white.png"),
       hoverLogo: require("@/assets/images/footer-logo.png"),
       hoverLogoOut: require("@/assets/images/footer-logo-white.png"),
@@ -448,6 +481,11 @@ export default {
         require("@/assets/images/facebook-circle.png"),
         require("@/assets/images/line-circle.png"),
       ],
+      bushiroads: [
+        require("@/assets/images/logo-bushiroad.png"),
+        require("@/assets/images/logo-bushiroad-music.png"),
+      ],
+      langs: ["JP", "EN"],
     };
   },
   methods: {
