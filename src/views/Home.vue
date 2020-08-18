@@ -18,6 +18,8 @@
       navigation-next-label="〉"
       :speed="1000"
       :autoplayTimeout="4000"
+      paginationActiveColor="none"
+      paginationColor="none"
     >
       <slide>
         <img src="../../src/assets/images/banner1.png" alt="スライド1" />

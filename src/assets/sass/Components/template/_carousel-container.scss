@@ -17,13 +17,30 @@
   width: 45%;
   margin: 0px 10px;
 }
-
-// .VueCarousel-dot {
-//   background-image: url("../images/star.png") !important;
-//   background-color: none !important;
-//   background-size: 200% !important;
-// }
-
+.VueCarousel-dot {
+  display: inline-block;
+  cursor: pointer;
+  background-clip: border-box;
+  border-radius: 0;
+  outline: none;
+  background-image: url("../images/star.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  padding: 5px !important;
+}
+.VueCarousel-dot--active {
+  display: inline-block;
+  cursor: pointer;
+  background-clip: border-box;
+  border-radius: 0;
+  outline: none;
+  background-image: url("../images/event-banner-pager-current.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 50%;
+  padding: 5px !important;
+}
 // .VueCarousel-dot--active {
 //   background-color: none !important;
 // }
