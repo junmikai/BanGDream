@@ -35,6 +35,10 @@
 .news-list > .image > .escape {
   transform: translate(0, -200px);
 }
+.news-list > .image > .inner > .no {
+  position: absolute;
+  top: -200px;
+}
 
 .news-list > .image > .inner > .icon {
   position: absolute;

@@ -74,7 +74,10 @@
               <img
                 src="../../src/assets/images/target.png"
                 alt="icon"
-                class="icon"
+                class="no"
+                :class="{
+                  icon: hoverThumbnail === list,
+                }"
               />
             </div>
 
@@ -307,6 +310,8 @@ export default {
       hoverMain: "",
       hoverThumbnail: "",
       escapeThumbnail: "",
+      hoverIcon: "",
+      escapeIcon: "",
       hoverBtn: "",
       hoverTitle: "",
       hoverBox: "",
