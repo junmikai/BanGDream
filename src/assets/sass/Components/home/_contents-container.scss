@@ -29,15 +29,7 @@
   text-align: center;
   font-size: 10px;
   color: $wild-dove;
-  &::before {
-    content: "";
-    display: inline-block;
-    border-top: solid currentColor;
-    border-width: thin;
-    height: 5px;
-    width: 13px;
-    margin: 0px 10px;
-  }
+  &::before,
   &::after {
     content: "";
     display: inline-block;
