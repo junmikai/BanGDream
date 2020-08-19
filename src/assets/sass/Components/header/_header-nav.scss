@@ -1,5 +1,5 @@
 .header-nav {
-  flex-basis: 70%;
+  flex-basis: 80%;
   font-size: 16px;
   font-weight: bold;
   display: flex;
@@ -12,13 +12,11 @@
     margin: 0 auto;
   }
 }
-
 .header-nav > .link {
   cursor: pointer;
   color: $dover-grey;
   margin: 0 2%;
 }
-
 .header-nav > .select {
   &:nth-child(1) {
     color: $red;
@@ -38,13 +36,15 @@
   &:nth-child(6) {
     color: $green;
   }
-  &:nth-child(7) {
-    color: $red;
-  }
 }
 
+.header-nav > .link > .japanese {
+  font-size: 11px;
+  text-align: center;
+  color: $dover-grey;
+}
 .header-nav > .sns {
   width: 40px;
   height: 40px;
-  margin: 0 10px;
+  margin: 0 5px;
 }

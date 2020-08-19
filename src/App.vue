@@ -4,14 +4,23 @@
       <img alt="logo" class="logo" src="../src/assets/images/logo.png" />
       <div class="header-nav">
         <div
-          v-for="list in englishs"
-          :key="list"
+          v-for="(list, index) in lists"
+          :key="`list-${index}`"
           class="link"
-          :class="{ select: hoverLink === list }"
           @mouseover="hoverLink = list"
           @mouseout="hoverLink = ''"
+          :class="{ select: hoverLink === list }"
         >
-          {{ list }}
+          <div v-for="english in list.english" :key="english" class="english">
+            {{ english }}
+          </div>
+          <div
+            v-for="japanese in list.japanese"
+            :key="japanese"
+            class="japanese"
+          >
+            {{ japanese }}
+          </div>
         </div>
 
         <img
@@ -34,14 +43,13 @@
 export default {
   data: function() {
     return {
-      englishs: [
-        "NEWS",
-        "LIVE/EVENT",
-        "ANIME",
-        "MEDIA",
-        "DISCOGRAPHY",
-        "GOODS",
-        "ABOUT",
+      lists: [
+        { english: ["NEWS"], japanese: ["ニュース"] },
+        { english: ["LIVE/EVENT"], japanese: ["ライブ/イベント"] },
+        { english: ["ANIME"], japanese: ["アニメ"] },
+        { english: ["DISCOGRAPHY"], japanese: ["ディスコグラフティ"] },
+        { english: ["GOODS"], japanese: ["グッズ"] },
+        { english: ["ABOUT"], japanese: ["バンドリ!とは"] },
       ],
       icons: [
         require("@/assets/images/twitter.png"),
