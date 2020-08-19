@@ -227,7 +227,7 @@
                 :class="{ hoverOpacity: hoverTwitter === twitter }"
               />
             </div>
-            <div class="area" :class="{ hoverFont: hoverTwitter === twitter }">
+            <div class="area " :class="{ hoverFont: hoverTwitter === twitter }">
               <p
                 class="title"
                 v-for="(title, index) in twitter.titles"
