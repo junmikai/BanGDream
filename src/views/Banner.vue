@@ -1,26 +1,26 @@
 <template>
   <div class="banner-container">
     <div
-      class="box"
       v-for="(box, index) in boxs"
       :key="`box-${index}`"
+      class="box"
       @mouseover="hoverBox = box"
       @mouseout="hoverBox = ''"
     >
       <img
-        class="image"
         v-for="(banner, index) in box.banners"
         :key="`banner-${index}`"
+        class="image"
         :src="banner"
         alt="banner"
-      />
-      <div :class="{ hoverRed: hoverBox === box }"></div>
+      >
+      <div :class="{ hoverRed: hoverBox === box }" />
     </div>
   </div>
 </template>
 <script>
 export default {
-  name: "calendar",
+  name: "Calendar",
   data: function() {
     return {
       hoverBox: "",

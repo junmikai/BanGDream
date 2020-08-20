@@ -1,11 +1,17 @@
 <template>
   <div class="contents-container -pa1_5 -back">
-    <p class="title">SCHEDULE</p>
-    <p class="translation">スケジュール</p>
-    <p class="month">2020年8月</p>
+    <p class="title">
+      SCHEDULE
+    </p>
+    <p class="translation">
+      スケジュール
+    </p>
+    <p class="month">
+      2020年8月
+    </p>
 
     <v-calendar>
-      <template slot="day-content" slot-scope="props">
+      <template>
         <div class="cell-header">
           {{ props.day.day }}
         </div>
@@ -16,9 +22,9 @@
             "
           >
             <div
-              class="cell-content-line -live"
               v-for="content in getLiveFromKey(liveDate(props.day.date))"
-              v-bind:key="content"
+              :key="content"
+              class="cell-content-line -live"
             >
               {{ content }}
             </div>
@@ -32,9 +38,9 @@
             "
           >
             <div
-              class="cell-content-line -ticket"
               v-for="content in getTicketFromKey(ticketDate(props.day.date))"
-              v-bind:key="content"
+              :key="content"
+              class="cell-content-line -ticket"
             >
               {{ content }}
             </div>
@@ -43,8 +49,8 @@
       </template>
     </v-calendar>
     <div
-      class="btn"
       :key="btn"
+      class="btn"
       :class="{ hoverLine: hoverBtn === btn }"
       @mouseover="hoverBtn = btn"
       @mouseout="hoverBtn = ''"
@@ -55,90 +61,92 @@
 </template>
 <script>
 export default {
-  name: "calendar",
+  name: "Calendar",
   data: function() {
     return {
       hoverBtn: "",
       btn: false,
-      liveList: [
-        {
-          ymd: "20200803",
-          contents: ["📻《21:00》【第46回】Afterglowの夕焼けSTUDIO"],
-        },
-        {
-          ymd: "20200809",
-          contents: [
-            "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
-            "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
-          ],
-        },
-        {
-          ymd: "20200811",
-          contents: [
-            "📻【第197回】バンドリ！ポッピンラジオ！",
-            "📻《20:30》【第7回】モニカラジオ（ニッポン放送版）",
-          ],
-        },
-        {
-          ymd: "20200812",
-          contents: [
-            "📺《19:00》【第7回】モニカラジオ（ニッポン放送版/動画アーカイブ放送）",
-            "📺《19:30》MORFONICAL #9",
-            "🎪《21:00》【第38回】＠ハロハピCiRCLE放送局",
-          ],
-        },
-        {
-          ymd: "20200813",
-          contents: ["📻【第143回】RoseliaのRADIO SHOUT!"],
-        },
-        {
-          ymd: "20200814",
-          contents: [
-            "📻【第82回】RAISE A SUILENのRADIO R･I･O･T",
-            "📺《22:00》バンドリ！TV LIVE #29",
-          ],
-        },
-        {
-          ymd: "20200815",
-          contents: ["📺《21:00》Pastel＊PalettesのしゅわりんTV #10"],
-        },
-        {
-          ymd: "20200830",
-          contents: ["📺《21:00》Pastel＊PalettesのしゅわりんTV #10"],
-        },
-      ],
-      ticketList: [
-        {
-          ymd: "20200809",
-          contents: [
-            "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
-          ],
-        },
-        {
-          ymd: "20200810",
-          contents: [
-            "🎫【受付開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS リセールチケット出品",
-          ],
-        },
-        {
-          ymd: "20200813",
-          contents: [
-            "🎫【販売開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS リセールチケット販売",
-          ],
-        },
-        {
-          ymd: "20200815",
-          contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
-        },
-        {
-          ymd: "20200820",
-          contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
-        },
-        {
-          ymd: "20200826",
-          contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
-        },
-      ],
+      props: {
+        liveList: [
+          {
+            ymd: "20200803",
+            contents: ["📻《21:00》【第46回】Afterglowの夕焼けSTUDIO"],
+          },
+          {
+            ymd: "20200809",
+            contents: [
+              "📻《21:00》【第46回】Afterglowの夕焼けSTUDIO",
+              "🎧《21:00》「A&G TRIBAL RADIO エジソン」RASメンバー出演",
+            ],
+          },
+          {
+            ymd: "20200811",
+            contents: [
+              "📻【第197回】バンドリ！ポッピンラジオ！",
+              "📻《20:30》【第7回】モニカラジオ（ニッポン放送版）",
+            ],
+          },
+          {
+            ymd: "20200812",
+            contents: [
+              "📺《19:00》【第7回】モニカラジオ（ニッポン放送版/動画アーカイブ放送）",
+              "📺《19:30》MORFONICAL #9",
+              "🎪《21:00》【第38回】＠ハロハピCiRCLE放送局",
+            ],
+          },
+          {
+            ymd: "20200813",
+            contents: ["📻【第143回】RoseliaのRADIO SHOUT!"],
+          },
+          {
+            ymd: "20200814",
+            contents: [
+              "📻【第82回】RAISE A SUILENのRADIO R･I･O･T",
+              "📺《22:00》バンドリ！TV LIVE #29",
+            ],
+          },
+          {
+            ymd: "20200815",
+            contents: ["📺《21:00》Pastel＊PalettesのしゅわりんTV #10"],
+          },
+          {
+            ymd: "20200830",
+            contents: ["📺《21:00》Pastel＊PalettesのしゅわりんTV #10"],
+          },
+        ],
+        ticketList: [
+          {
+            ymd: "20200809",
+            contents: [
+              "🎫【申込開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS 一般販売",
+            ],
+          },
+          {
+            ymd: "20200810",
+            contents: [
+              "🎫【受付開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS リセールチケット出品",
+            ],
+          },
+          {
+            ymd: "20200813",
+            contents: [
+              "🎫【販売開始】「BanG Dream! 8th☆LIVE」夏の野外3DAYS リセールチケット販売",
+            ],
+          },
+          {
+            ymd: "20200815",
+            contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
+          },
+          {
+            ymd: "20200820",
+            contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
+          },
+          {
+            ymd: "20200826",
+            contents: ["🎤「BanG Dream! 8th☆LIVE」夏の野外3DAYS"],
+          },
+        ],
+      },
     };
   },
   methods: {

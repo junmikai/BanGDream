@@ -6,23 +6,23 @@
           src="../../src/assets/images/star-white.png"
           alt="star"
           class="star"
-        />
+        >
         <p>Official Twitter</p>
         <img
           src="../../src/assets/images/star-white.png"
           alt="star"
           class="star"
-        />
+        >
       </div>
 
       <div class="footer-sns">
         <div
-          class="rectangle"
           v-for="(twitter, index) in twitters"
           :key="`twitter-${index}`"
+          class="rectangle"
+          :class="{ hoverWhite: hoverTwitter === twitter }"
           @mouseover="hoverTwitter = twitter"
           @mouseout="hoverTwitter = ''"
-          :class="{ hoverWhite: hoverTwitter === twitter }"
         >
           <div class="area -w120">
             <img
@@ -32,38 +32,42 @@
               alt="icon"
               class="icon"
               :class="{ hoverOpacity: hoverTwitter === twitter }"
-            />
+            >
           </div>
-          <div class="area " :class="{ hoverFont: hoverTwitter === twitter }">
+          <div
+            class="area "
+            :class="{ hoverFont: hoverTwitter === twitter }"
+          >
             <p
-              class="title"
               v-for="(title, index) in twitter.titles"
               :key="`title-${index}`"
+              class="title"
             >
               {{ title }}
             </p>
             <a
-              class="link"
               v-for="(link, index) in twitter.links"
               :key="`link-${index}`"
-              >@bang_dream_info</a
-            >
+              class="link"
+            >@bang_dream_info</a>
           </div>
         </div>
       </div>
 
       <div class="flex -share">
-        <p class="share">SHARE</p>
+        <p class="share">
+          SHARE
+        </p>
         <img
           v-for="(circle, index) in circles"
           :key="`circle-${index}`"
           :src="circle"
           alt="circle"
           class="circle"
+          :class="{ hoverOpacity: hoverCircle === circle }"
           @mouseover="hoverCircle = circle"
           @mouseout="hoverCircle = ''"
-          :class="{ hoverOpacity: hoverCircle === circle }"
-        />
+        >
       </div>
 
       <img
@@ -72,7 +76,7 @@
         class="logo"
         @mouseover="logo = hoverLogo"
         @mouseout="logo = hoverLogoOut"
-      />
+      >
       <div class="flex">
         <img
           v-for="(bushiroad, index) in bushiroads"
@@ -80,20 +84,20 @@
           :src="bushiroad"
           alt="bushiroad"
           class="bushiroad"
+          :class="{ hoverOpacity: hoverBushiroad === bushiroad }"
           @mouseover="hoverBushiroad = bushiroad"
           @mouseout="hoverBushiroad = ''"
-          :class="{ hoverOpacity: hoverBushiroad === bushiroad }"
-        />
+        >
       </div>
 
       <div class="flex -share">
         <p
-          class="lang"
           v-for="(lang, index) in langs"
           :key="`lang-${index}`"
+          class="lang"
+          :class="{ hoverFont: hoverLang === lang }"
           @mouseover="hoverLang = lang"
           @mouseout="hoverLang = ''"
-          :class="{ hoverFont: hoverLang === lang }"
         >
           {{ lang }}
         </p>
@@ -107,7 +111,7 @@
 </template>
 <script>
 export default {
-  name: "calendar",
+  name: "Calendar",
   data: function() {
     return {
       hoverTitle: "",

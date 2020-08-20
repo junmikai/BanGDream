@@ -2,23 +2,23 @@
   <div class="main-container">
     <!-- トップ画像 -->
     <img
-      alt="main"
       :key="main"
+      alt="main"
       src="../../src/assets/images/Las.png"
       :class="{ hoverOpacity: hoverMain === main }"
       @mouseover="hoverMain = main"
       @mouseout="hoverMain = ''"
-    />
+    >
     <!-- カルーセル-->
-    <Carousel></Carousel>
+    <Carousel />
     <!-- ニュース-->
-    <News></News>
+    <News />
     <!-- カレンダー-->
-    <Calendar></Calendar>
+    <Calendar />
     <!-- バナー-->
-    <Banner></Banner>
+    <Banner />
     <!-- フッターー-->
-    <Footer></Footer>
+    <Footer />
   </div>
 </template>
 <script>

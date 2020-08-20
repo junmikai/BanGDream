@@ -1,12 +1,16 @@
 <template>
   <div class="contents-container">
-    <p class="title">NEWS</p>
-    <p class="translation">ニュース</p>
+    <p class="title">
+      NEWS
+    </p>
+    <p class="translation">
+      ニュース
+    </p>
     <div class="lists">
       <div
-        class="news-list"
         v-for="(list, index) in lists"
         :key="`list-${index}`"
+        class="news-list"
         @mouseover="
           (hoverThumbnail = list), (escapeThumbnail = ''), (hoverTitle = list)
         "
@@ -16,8 +20,8 @@
       >
         <div class="image">
           <div
-            class="inner"
             :key="thumbnail"
+            class="inner"
             :class="{
               target: hoverThumbnail === list,
               escape: escapeThumbnail === list,
@@ -30,7 +34,7 @@
               :class="{
                 icon: hoverThumbnail === list,
               }"
-            />
+            >
           </div>
 
           <img
@@ -39,7 +43,7 @@
             :src="thumbnail"
             alt="thumbnail"
             class="thumbnail"
-          />
+          >
         </div>
         <img
           v-for="genre in list.genres"
@@ -47,23 +51,27 @@
           :src="genre"
           alt="genre"
           class="genre"
-        />
+        >
         <p
-          class="title"
           v-for="title in list.titles"
           :key="title"
+          class="title"
           :class="{ hover: hoverTitle === list }"
         >
           {{ title }}
         </p>
-        <p class="time" v-for="time in list.times" :key="time">
+        <p
+          v-for="time in list.times"
+          :key="time"
+          class="time"
+        >
           {{ time }}
         </p>
       </div>
     </div>
     <div
-      class="btn"
       :key="btn"
+      class="btn"
       :class="{ hoverLine: hoverBtn === btn }"
       @mouseover="hoverBtn = btn"
       @mouseout="hoverBtn = ''"
@@ -74,7 +82,7 @@
 </template>
 <script>
 export default {
-  name: "calendar",
+  name: "Calendar",
   data: function() {
     return {
       hoverThumbnail: "",

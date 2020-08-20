@@ -1,17 +1,25 @@
 <template>
   <div id="app">
     <div class="header-container">
-      <img alt="logo" class="logo" src="../src/assets/images/logo.png" />
+      <img
+        alt="logo"
+        class="logo"
+        src="../src/assets/images/logo.png"
+      >
       <div class="header-nav">
         <div
           v-for="(list, index) in lists"
           :key="`list-${index}`"
           class="link"
+          :class="{ select: hoverLink === list }"
           @mouseover="hoverLink = list"
           @mouseout="hoverLink = ''"
-          :class="{ select: hoverLink === list }"
         >
-          <div v-for="english in list.english" :key="english" class="english">
+          <div
+            v-for="english in list.english"
+            :key="english"
+            class="english"
+          >
             {{ english }}
           </div>
           <div
@@ -32,7 +40,7 @@
           :class="{ hoverOpacity: hoverSns === icon }"
           @mouseover="hoverSns = icon"
           @mouseout="hoverSns = ''"
-        />
+        >
       </div>
     </div>
     <router-view />
