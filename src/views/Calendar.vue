@@ -1,20 +1,12 @@
 <template>
   <div class="contents-container -pa1_5 -back">
-    <p class="title">
-      SCHEDULE
-    </p>
-    <p class="translation">
-      スケジュール
-    </p>
-    <p class="month">
-      2020年8月
-    </p>
+    <p class="title">SCHEDULE</p>
+    <p class="translation">スケジュール</p>
+    <p class="month">2020年9月</p>
 
     <v-calendar>
       <template>
-        <div class="cell-header">
-          {{ props.day.day }}
-        </div>
+        <div class="cell-header">{{ props.day.day }}</div>
         <div class="cell-content">
           <template
             v-if="
@@ -25,9 +17,7 @@
               v-for="content in getLiveFromKey(liveDate(props.day.date))"
               :key="content"
               class="cell-content-line -live"
-            >
-              {{ content }}
-            </div>
+            >{{ content }}</div>
           </template>
         </div>
 
@@ -41,9 +31,7 @@
               v-for="content in getTicketFromKey(ticketDate(props.day.date))"
               :key="content"
               class="cell-content-line -ticket"
-            >
-              {{ content }}
-            </div>
+            >{{ content }}</div>
           </template>
         </div>
       </template>
@@ -54,15 +42,13 @@
       :class="{ hoverLine: hoverBtn === btn }"
       @mouseover="hoverBtn = btn"
       @mouseout="hoverBtn = ''"
-    >
-      VIEW MORE
-    </div>
+    >VIEW MORE</div>
   </div>
 </template>
 <script>
 export default {
   name: "Calendar",
-  data: function() {
+  data: function () {
     return {
       hoverBtn: "",
       btn: false,
@@ -150,27 +136,27 @@ export default {
     };
   },
   methods: {
-    liveDate: function(date) {
+    liveDate: function (date) {
       let y = date.getFullYear();
       let m = ("00" + (date.getMonth() + 1)).slice(-2);
       let d = ("00" + date.getDate()).slice(-2);
       let result = y + "" + m + "" + d;
       return result;
     },
-    getLiveFromKey: function(key) {
+    getLiveFromKey: function (key) {
       const target = this.liveList.find((date) => {
         return date.ymd === key;
       });
       return target.contents;
     },
-    ticketDate: function(date) {
+    ticketDate: function (date) {
       let y = date.getFullYear();
       let m = ("00" + (date.getMonth() + 1)).slice(-2);
       let d = ("00" + date.getDate()).slice(-2);
       let result = y + "" + m + "" + d;
       return result;
     },
-    getTicketFromKey: function(key) {
+    getTicketFromKey: function (key) {
       const target = this.ticketList.find((date) => {
         return date.ymd === key;
       });
